@@ -63,5 +63,15 @@ namespace JWTWebApiONE.Repository
             }
             return message;
         }
+        public List<User> GetAllUsers()
+        {
+            List<User> Users = new List<User>();
+            UserResponseDTO user1 = new UserResponseDTO();
+            User user = new User();    
+            SqlConnection connection = new SqlConnection(conn);
+            Users = connection.Query<User>("Select * From UserRegister").ToList();
+           
+            return Users;
+        }
     }
 }

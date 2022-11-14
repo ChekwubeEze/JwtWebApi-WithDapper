@@ -1,5 +1,6 @@
 ﻿using JWTWebApiONE.DTO;
 using JWTWebApiONE.Interfaces;
+using JWTWebApiONE.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +26,11 @@ namespace JWTWebApiONE.Controllers
         public string LoginUser([FromQuery] UserLoginDTO userLoginDTO)
         {
             return _userRepository.LoginUser(userLoginDTO);
+        }
+        [HttpGet("Get-All-Users")]
+        public List<User> GetAllUsers()
+        {
+            return _userRepository.GetAllUsers();
         }
     }
 }
